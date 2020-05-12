@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web
 @using ProductWebsite.Models
 @using ProductWebsite.Services
 @inject JsonFileProductService ProductService
@@ -14,20 +14,20 @@
             </div>
             <div class="card-footer">
                 <small class="text-muted">
-                    <button @onclick="(e => SelectProduct(product.Id))"
-                            data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                    <button data-toggle="modal" data-target="#productModal" @onclick="(e => SelectProduct(product.Id))" class="btn btn-primary">
                         More Info
                     </button>
                 </small>
             </div>
         </div>
+
     }
 </div>
 
-@if (selectedProduct != null)
-{
-    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        @if (selectedProduct != null)
+        {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
@@ -69,9 +69,10 @@
 
                 </div>
             </div>
-        </div>
+        }
+
     </div>
-}
+</div>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
