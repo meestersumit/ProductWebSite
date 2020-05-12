@@ -1,0 +1,14 @@
+﻿@using ProductWebsite.Components;
+@model IEnumerable<ProductWebsite.Models.Product>
+@{
+    ViewData["Title"] = "Product";
+}
+
+<div class="text-center">
+    <h2>Product List</h2>
+</div>
+
+@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
+
+<script src="_framework/blazor.server.js"></script>
+
